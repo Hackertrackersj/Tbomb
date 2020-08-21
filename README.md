@@ -122,11 +122,11 @@ sudo bash TBomb.sh
 - **0n1cOn3 (Stefan)**<br>
 [-] Mail At: 0n1cOn3@gmx.ch
 
-## Donators:
 
-**[@] 34D30Y ( 34db0y@protonmail.com  )**
 
-**[@] SC AMAN**
+
+
+
 
 # CONTACT ME:
 
@@ -137,6 +137,6 @@ Feel Free To Open An Issue...
        YouTube Channel:https://www.youtube.com/channel/UCqqNyOaX6Dxwg5e6Bf6reSw
 ```
 
-<a href="https://www.youtube.com/c/GyanaTech">Check Out My YouTube Channel</a>
+<a href="https:
 
-<!-- L3yvMKWbLJAermqvZT1vKmDkGwqsZmD1rK0= -->
+
