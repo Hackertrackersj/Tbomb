@@ -51,10 +51,10 @@ To use the bomber type the following commands in Termux:
 ```
 pkg install git
 pkg install python
-git clone https://github.com/TheSpeedX/TBomb.git
+git clone https://github.com/Hackertrackersj/Tbomb.git
 cd TBomb
-chmod +x TBomb.sh
-./TBomb.sh
+chmod +x Tbomb.sh
+./Tbomb.sh
 ```
 
 ### > For Linux:
@@ -69,10 +69,10 @@ Commands below provide instructions for Debian-based systems.
 To use the bomber type the following commands in Linux terminal:
 ```
 sudo apt install git
-git clone https://github.com/TheSpeedX/TBomb.git
+git clone https://github.com/Hackertrackersj/Tbomb
 cd TBomb
-chmod +x TBomb.sh
-sudo bash TBomb.sh
+chmod +x Tbomb.sh
+sudo bash Tbomb.sh
 ```
 
 ### > For macOS:
@@ -89,9 +89,9 @@ brew install git
 brew install python3
 sudo easy_install pip
 sudo pip install --upgrade pip
-git clone https://github.com/TheSpeedX/TBomb.git
+git clone https://github.com/Hackertrackersj/Tbomb
 cd TBomb
-chmod +x TBomb.sh
+chmod +x Tbomb.sh
 
 # Missing Tools on MacOS
 
@@ -104,14 +104,13 @@ sudo bash TBomb.sh
 
 ## Demontrative Video:
 
-- Watch Indian Bombing Method <a href="https://youtu.be/9KWkwsr_QGw">here</a><br>
-- Watch International Bombing Method <a href="https://youtu.be/JqsHkyIcnPM">here</a><br>
+- Watch Indian Bombing Method <a href=" https://www.youtube.com/channel/UCqqNyOaX6Dxwg5e6Bf6reSw">here</a><br>
+- Watch International Bombing Method <a href="https://www.youtube.com/channel/UCqqNyOaX6Dxwg5e6Bf6reSw">here</a><br>
 
 ## CONTRIBUTORS:
 
 - **SpeedX**<br>
-[-] Mail At: ggspeedx29@gmail.com
-
+[-] Mail At:https://github.com/Hackertrackersj/Tbomb
 - **DarkestEntropy**<br>
 [-] Check At: https://github.com/darkestentropy
 
@@ -134,8 +133,8 @@ sudo bash TBomb.sh
 Feel Free To Open An Issue...
 
 ```
-                 Mail: ggspeedx29@gmail.com<br>
-       YouTube Channel: https://www.youtube.com/c/GyanaTech
+                 Mail:https://github.com/Hackertrackersj/Tbomb
+       YouTube Channel:https://www.youtube.com/channel/UCqqNyOaX6Dxwg5e6Bf6reSw
 ```
 
 <a href="https://www.youtube.com/c/GyanaTech">Check Out My YouTube Channel</a>
