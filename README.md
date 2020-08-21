@@ -53,8 +53,8 @@ pkg install git
 pkg install python
 git clone https://github.com/Hackertrackersj/Tbomb.git
 cd TBomb
-chmod +x Tbomb.sh
-./Tbomb.sh
+chmod +x TBomb.sh
+./TBomb.sh
 ```
 
 ### > For Linux:
@@ -71,8 +71,8 @@ To use the bomber type the following commands in Linux terminal:
 sudo apt install git
 git clone https://github.com/Hackertrackersj/Tbomb
 cd TBomb
-chmod +x Tbomb.sh
-sudo bash Tbomb.sh
+chmod +x TBomb.sh
+sudo bash TBomb.sh
 ```
 
 ### > For macOS:
@@ -89,9 +89,9 @@ brew install git
 brew install python3
 sudo easy_install pip
 sudo pip install --upgrade pip
-git clone https://github.com/Hackertrackersj/Tbomb
+git clone https://github.com/Hackertrackersj/Tbomb
 cd TBomb
-chmod +x Tbomb.sh
+chmod +x TBomb.sh
 
 # Missing Tools on MacOS
 
