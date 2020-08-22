@@ -1,4 +1,4 @@
-<h1 align="center">TBomb v1.7b</h1>
+<h1 align="center">TBomb v2.2</h1>
 <p align="center">An open-source SMS/call bomber for Linux And Termux.</p><br>
 
 ## Note:
