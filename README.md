@@ -111,17 +111,6 @@ sudo bash TBomb.sh
 
 - **SpeedX**<br>
 [-] Mail At:https://github.com/Hackertrackersj/Tbomb
-- **DarkestEntropy**<br>
-[-] Check At: https://github.com/darkestentropy
-
-- **The Black Hacker Roxstar**<br>
-
-- **Rieltar**<br>
-[-] Ping At: https://t.me/RieltarReborn
-
-- **0n1cOn3 (Stefan)**<br>
-[-] Mail At: 0n1cOn3@gmx.ch
-
 
 
 
