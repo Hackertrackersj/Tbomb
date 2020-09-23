@@ -104,8 +104,8 @@ sudo bash TBomb.sh
 
 ## Demontrative Video:
 
-- Watch Indian Bombing Method <a href=" https://www.youtube.com/channel/UCqqNyOaX6Dxwg5e6Bf6reSw">here</a><br>
-- Watch International Bombing Method <a href="https://www.youtube.com/channel/UCqqNyOaX6Dxwg5e6Bf6reSw">here</a><br>
+- Watch Indian Bombing Method <a href="https://youtu.be/gq7NKkNYuVA">here</a><br>
+
 
 ## CONTRIBUTORS:
 
