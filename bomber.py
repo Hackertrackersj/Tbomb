@@ -858,15 +858,6 @@ if nm > maxlim:
           str(maxlim) + ' SMS At Once...\n\n')
     print('Number Of SMS Has been Set To ' + str(maxlim))
     nm = maxlim
-if not cc.strip() == "91":
-    if type == 1:
-        print(
-            '\t\tSorry But Call Bombing is Currently Supported Only For Indian Numbers!!!!')
-        print()
-        input('Press Enter To Exit....')
-        print('\n\n')
-        banner()
-        exit()
     cnt = 0
     if pn.strip() == '' or dl <= 0 or nm <= 0 or cc.strip() == '' or cc.find('+') != -1:
         print('\n\n\tSeems Like You Have Given Wrong Inputs...')
