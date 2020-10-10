@@ -52,10 +52,11 @@ To use the bomber type the following commands in Termux:
 pkg install git
 pkg install python
 git clone https://github.com/Hackertrackersj/Tbomb.git
-cd TBomb
+cd Tbomb
 chmod +x TBomb.sh
 ./TBomb.sh
 ```
+## Watch practical video <a href="https://youtu.be/gq7NKkNYuVA"> click here</a>
 
 ### > For Linux:
 
