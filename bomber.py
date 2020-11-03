@@ -211,7 +211,7 @@ def do_zip_update():
         mesgdcrt.GeneralMessage("Please run the script again to load the latest version")
     else:
         mesgdcrt.FailureMessage("Unable to update TBomb.")
-        mesgdcrt.WarningMessage("Grab The Latest one From https://github.com/Hackertrackersj/Tbomb.git")
+        mesgdcrt.WarningMessage("Grab The Latest one From https://github.com/TheSpeedX/TBomb.git")
 
     sys.exit()
 
@@ -238,7 +238,7 @@ def do_git_update():
         mesgdcrt.FailureMessage("Unable to update TBomb.")
         mesgdcrt.WarningMessage("Make Sure To Install 'git' ")
         mesgdcrt.GeneralMessage("Then run command:")
-        print("git checkout . && git pull https://github.com/Hackertrackersj/Tbomb.git HEAD")
+        print("git checkout . && git pull https://github.com/Hackertrackersj/Tbomb HEAD")
     sys.exit()
 
 def update():
@@ -248,7 +248,7 @@ def update():
         do_zip_update()
 def check_for_updates():
     mesgdcrt.SectionMessage("Checking for updates")
-    fver = requests.get("https://github.com/Hackertrackersj/Tbomb/blob/master/.version").text.strip()
+    fver = requests.get("https://raw.githubusercontent.com/TheSpeedX/TBomb/master/.version").text.strip()
     if fver != __VERSION__:
         mesgdcrt.WarningMessage("An update is available")
         mesgdcrt.GeneralMessage("Starting update...")
@@ -299,8 +299,7 @@ def pretty_print(cc,target,success,failed):
     mesgdcrt.GeneralMessage("Successful   : " + str(success))
     mesgdcrt.GeneralMessage("Failed       : " + str(failed))
     mesgdcrt.WarningMessage("This tool was made for fun and research purposes only")
-    mesgdcrt.SuccessMessage("TBomb was Modify by Nitro Hacker")
-    mesgdcrt.SuccessMessage("TBomb was created by speedx")
+    mesgdcrt.SuccessMessage("TBomb was created by SpeedX")
 
 def workernode(mode,cc,target,count,delay,max_threads):
 
