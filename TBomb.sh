@@ -68,21 +68,6 @@ init_environ(){
     PIP="$PYTHON -m pip"
 }
 
-install_deps(){
-    
-    packages=(openssl git $python3 figlet toilet)
-    if [ -n "$INSTALL" ];then
-        for package in ${packages[@]}; do
-             $INSTALL $package
-        done
-        $PIP install -r requirements.txt
-    else
-        echo "We could not install dependencies."
-        echo "Please make sure you have git, python3, pip3 and requirements installed."
-        echo "Then you can execute bomber.py ."
-        exit
-    fi
-}
 
 banner
 pause
