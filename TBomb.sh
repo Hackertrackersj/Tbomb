@@ -97,10 +97,10 @@ do
     read ch
     clear
     if [ $ch -eq 1 ];then
-        $python3 bomber.py --sms
+        $python3 bomber.py 
         exit
     elif [ $ch -eq 2 ];then
-        $python3 bomber.py --call
+        $python3 bomber.py 
         exit
     elif [ $ch -eq 3 ];then
          cd $HOME
