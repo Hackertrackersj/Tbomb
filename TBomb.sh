@@ -70,10 +70,10 @@ init_environ(){
 
 install_deps(){
     
-    packages=(openssl git $PYTHON $PYTHON-pip figlet toilet)
+    packages=(openssl git $python3 figlet toilet)
     if [ -n "$INSTALL" ];then
         for package in ${packages[@]}; do
-            $SUDO $INSTALL $package
+             $INSTALL $package
         done
         $PIP install -r requirements.txt
     else
