@@ -112,18 +112,23 @@ do
     read ch
     clear
     if [ $ch -eq 1 ];then
-        $PYTHON bomber.py --sms
+        $python3 bomber.py --sms
         exit
     elif [ $ch -eq 2 ];then
-        $PYTHON bomber.py --call
+        $python3 bomber.py --call
         exit
     elif [ $ch -eq 3 ];then
-        $PYTHON bomber.py --mail
+        $ cd/$HOME
+        $git clone https://github.com/ha-mrx/Emailbomb
+         $cd Emailbomb
+        $chmod +x Emailbomb.py
+        $python2 Emailbomb.py
+
         exit
     elif [ $ch -eq 4 ];then
         echo -e "\e[1;34m Downloading Latest Files..."
         rm -f .update
-        $PYTHON bomber.py --update
+        $python3 bomber.py --update
         echo -e "\e[1;34m RUN TBomb Again..."
         pause
         exit
