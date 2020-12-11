@@ -97,12 +97,18 @@ do
     read ch
     clear
     if [ $ch -eq 1 ];then
+        echo -e "\e[1;34m wait please"
+        echo -e "\e[1;34m Subscribe Nitro Hacker Youtub Channel"
+        sleep 4
         cd $HOME
         cd Tbomb
         python3 bomber.py
        
         exit
     elif [ $ch -eq 2 ];then
+        echo -e "\e[1;34m wait please"
+        echo -e "\e[1;34m Subscribe Nitro Hacker Youtub Channel"
+        sleep 4
         cd $HOME
         cd Tbomb
         python3 bomber.py
@@ -110,6 +116,9 @@ do
         exit
         exit
     elif [ $ch -eq 3 ];then
+         echo -e "\e[1;34m wait please"
+        echo -e "\e[1;34m Subscribe Nitro Hacker Youtub Channel"
+         sleep 4
          cd $HOME
         git clone https://github.com/ha-mrx/Emailbomb
          cd Emailbomb
