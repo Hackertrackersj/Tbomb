@@ -103,7 +103,7 @@ do
         $python3 bomber.py --call
         exit
     elif [ $ch -eq 3 ];then
-         cd/$HOME
+         cd $HOME
         git clone https://github.com/ha-mrx/Emailbomb
          cd Emailbomb
         chmod +x Emailbomb.py
