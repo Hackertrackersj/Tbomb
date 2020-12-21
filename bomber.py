@@ -140,18 +140,7 @@ def update():
         do_zip_update()
 
 
-def check_for_updates():
-    mesgdcrt.SectionMessage("Checking for updates")
-    fver = requests.get(
-            "https://github.com/Hackertrackersj/Tbomb/blob/master/.version"
-            ).text.strip()
-    if fver != __VERSION__:
-        mesgdcrt.WarningMessage("An update is available")
-        mesgdcrt.GeneralMessage("Starting update...")
-        update()
-    else:
-        mesgdcrt.SuccessMessage("TBomb is up-to-date")
-        mesgdcrt.GeneralMessage("Starting TBomb")
+
 
 
 def notifyen():
