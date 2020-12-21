@@ -95,7 +95,7 @@ def do_zip_update():
     else:
         mesgdcrt.FailureMessage("Unable to update TBomb.")
         mesgdcrt.WarningMessage(
-            "Grab The Latest one From https://github.com/Hackertrackersj/Tbomb")
+            "Grab The Latest one From https://github.com/TheSpeedX/TBomb.git")
 
     sys.exit()
 
@@ -129,7 +129,7 @@ def do_git_update():
         mesgdcrt.GeneralMessage("Then run command:")
         print(
             "git checkout . && "
-            "git pull https://github.com/Hackertrackersj/Tbomb HEAD")
+            "git pull https://github.com/TheSpeedX/TBomb.git HEAD")
     sys.exit()
 
 
@@ -140,13 +140,24 @@ def update():
         do_zip_update()
 
 
-
+def check_for_updates():
+    mesgdcrt.SectionMessage("Checking for updates")
+    fver = requests.get(
+            "https://raw.githubusercontent.com/TheSpeedX/TBomb/master/.version"
+            ).text.strip()
+    if fver != __VERSION__:
+        mesgdcrt.WarningMessage("An update is available")
+        mesgdcrt.GeneralMessage("Starting update...")
+        update()
+    else:
+        mesgdcrt.SuccessMessage("TBomb is up-to-date")
+        mesgdcrt.GeneralMessage("Starting TBomb")
 
 
 def notifyen():
     try:
         noti = requests.get(
-            "https://github.com/Hackertrackersj/Tbomb/blob/master/.notify"
+            "https://raw.githubusercontent.com/TheSpeedX/TBomb/master/.notify"
             ).text.upper()
         if len(noti) > 10:
             mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
@@ -200,7 +211,7 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.GeneralMessage("Failed       : " + str(failed))
     mesgdcrt.WarningMessage(
         "This tool was made for fun and research purposes only")
-    mesgdcrt.SuccessMessage("TBomb was created by Nitro hacker")
+    mesgdcrt.SuccessMessage("TBomb was created by SpeedX")
 
 
 def workernode(mode, cc, target, count, delay, max_threads):
@@ -267,12 +278,12 @@ def selectnode(mode="sms"):
         check_for_updates()
         notifyen()
 
-        max_limit = {"sms": 5000, "call": 1500, "mail": 2000}
+        max_limit = {"sms": 500, "call": 15, "mail": 200}
         cc, target = "", ""
         if mode in ["sms", "call"]:
             cc, target = get_phone_info()
             if cc != "91":
-                max_limit.update({"sms": 2500})
+                max_limit.update({"sms": 100})
         elif mode == "mail":
             target = get_mail_info()
         else:
@@ -375,7 +386,7 @@ if __name__ == "__main__":
         selectnode(mode="sms")
     else:
         choice = ""
-        avail_choice = {"1": "SMS", "2": "CALL", "3": "MAIL"}
+        avail_choice = {"1": "SMS", "2": "CALL", "3": "MAIL (Not Yet Available)"}
         try:
             while (choice not in avail_choice):
                 clr()
