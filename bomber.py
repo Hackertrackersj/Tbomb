@@ -95,7 +95,7 @@ def do_zip_update():
     else:
         mesgdcrt.FailureMessage("Unable to update TBomb.")
         mesgdcrt.WarningMessage(
-            "Grab The Latest one From https://github.com/Hackertrackersj/Tbomb")
+            "Grab The Latest one From https://github.com/TheSpeedX/TBomb.git")
 
     sys.exit()
 
@@ -129,7 +129,7 @@ def do_git_update():
         mesgdcrt.GeneralMessage("Then run command:")
         print(
             "git checkout . && "
-            "git pull https://github.com/Hackertrackersj/Tbomb HEAD")
+            "git pull https://github.com/TheSpeedX/TBomb.git HEAD")
     sys.exit()
 
 
@@ -211,7 +211,7 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.GeneralMessage("Failed       : " + str(failed))
     mesgdcrt.WarningMessage(
         "This tool was made for fun and research purposes only")
-    mesgdcrt.SuccessMessage("TBomb was created by Nitro Hacker")
+    mesgdcrt.SuccessMessage("TBomb was created by SpeedX")
 
 
 def workernode(mode, cc, target, count, delay, max_threads):
@@ -386,7 +386,7 @@ if __name__ == "__main__":
         selectnode(mode="sms")
     else:
         choice = ""
-        avail_choice = {"1": "SMS", "2": "CALL", "3": "MAIL"}
+        avail_choice = {"1": "SMS", "2": "CALL", "3": "MAIL (Not Yet Available)"}
         try:
             while (choice not in avail_choice):
                 clr()
