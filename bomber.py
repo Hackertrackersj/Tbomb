@@ -143,7 +143,7 @@ def update():
 def check_for_updates():
     mesgdcrt.SectionMessage("Checking for updates")
     fver = requests.get(
-            "https://raw.githubusercontent.com/TheSpeedX/TBomb/master/.version"
+            "https://github.com/Hackertrackersj/Tbomb/blob/master/.version"
             ).text.strip()
     if fver != __VERSION__:
         mesgdcrt.WarningMessage("An update is available")
