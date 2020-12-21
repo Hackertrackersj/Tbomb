@@ -32,14 +32,14 @@ banner() {
         figlet TBomb
     fi
     if ! [ -x "$(command -v toilet)" ]; then
-        echo -e "\e[4;34m This Bomber Was Created By \e[1;32mNitro Hacker \e[0m"
+        echo -e "\e[4;34m This Bomber Was Created By \e[1;32mSpeedX \e[0m"
     else
         echo -e "\e[1;34mCreated By \e[1;34m"
-        toilet -f mono12 -F border Nitro Hacker
+        toilet -f mono12 -F border SpeedX
     fi
     echo -e "\e[1;34m For Any Queries Join Me!!!\e[0m"
-    echo -e "\e[1;32m           Telegram: https://t.me/nitrohacker \e[0m"
-    echo -e "\e[4;32m   YouTube: https://www.youtube.com/channel/UCv80Btv_4kn_9b-GVgPIwMg \e[0m"
+    echo -e "\e[1;32m           Telegram: https://t.me/TBombChat \e[0m"
+    echo -e "\e[4;32m   YouTube: https://www.youtube.com/c/SpeedXTech \e[0m"
     echo " "
 
 }
@@ -97,7 +97,7 @@ else
     echo .
     echo .
     install_deps
-    echo This Script Was Made By Nitro Hacker > .update
+    echo This Script Was Made By SpeedX > .update
     echo 'Requirements Installed....'
     pause
 fi
@@ -108,45 +108,24 @@ do
     echo " "
     echo "Press 1 To  Start SMS  Bomber "
     echo "Press 2 To  Start CALL Bomber "
-    echo "Press 3 To  Start MAIL Bomber "
+    echo "Press 3 To  Start MAIL Bomber (Not Yet Available)"
     echo "Press 4 To  Update (Works On Linux And Linux Emulators) "
     echo "Press 5 To  Exit "
     read ch
     clear
     if [ $ch -eq 1 ];then
-        echo -e "\e[1;34m        wait please"
-        echo -e "\e[1;32m   Subscribe Nitro Hacker Youtube Channel"
-        sleep 5
-        cd $HOME
-        cd Tbomb
-        python3 bomber.py
-       
+        $PYTHON bomber.py --sms
         exit
     elif [ $ch -eq 2 ];then
-        echo -e "\e[1;34m          wait please"
-        echo -e "\e[1;32m    Subscribe Nitro Hacker Youtube Channel"
-        sleep 5
-        cd $HOME
-        cd Tbomb
-        python3 bomber.py
-        
-        exit
+        $PYTHON bomber.py --call
         exit
     elif [ $ch -eq 3 ];then
-         echo -e "\e[1;34m        wait please"
-        echo -e "\e[1;32m   Subscribe Nitro Hacker Youtube Channel"
-         sleep 5
-         cd $HOME
-        git clone https://github.com/ha-mrx/Emailbomb
-         cd Emailbomb
-        chmod +x Emailbomb.py
-        python2 Emailbomb.py
-
+        $PYTHON bomber.py --mail
         exit
     elif [ $ch -eq 4 ];then
         echo -e "\e[1;34m Downloading Latest Files..."
         rm -f .update
-        $python3 bomber.py --update
+        $PYTHON bomber.py --update
         echo -e "\e[1;34m RUN TBomb Again..."
         pause
         exit
