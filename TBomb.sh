@@ -145,7 +145,8 @@ do
 
         exit
     elif [ $ch -eq 4 ];then
-        echo -e "\e[1;34m whatsapp bombing coming soon"
+        echo -e "\e[1;34m            whatsapp bombing coming soon"
+        echo -e "\e[1;32m        Subscribe Nitro Hacker Youtube Channel"
         sleep 5
         cd $HOME
         cd Tbomb
