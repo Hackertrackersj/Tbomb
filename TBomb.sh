@@ -109,8 +109,9 @@ do
     echo "Press 1 To  Start SMS  Bomber "
     echo "Press 2 To  Start CALL Bomber "
     echo "Press 3 To  Start MAIL Bomber "
-    echo "Press 4 To  Update (Works On Linux And Linux Emulators) "
-    echo "Press 5 To  Exit "
+     echo "Press 4 To  Whatsapp Bomber ( Coming Now) "
+    echo "Press 5 To  Update (Works On Linux And Linux Emulators) "
+    echo "Press 6 To  Exit "
     read ch
     clear
    if [ $ch -eq 1 ];then
@@ -144,6 +145,11 @@ do
 
         exit
     elif [ $ch -eq 4 ];then
+        echo -e "\e[1;34m whatsapp bombing coming soon"
+        cd $HOME
+        cd Tbomb
+        bash TBomb.sh
+    elif [ $ch -eq 5 ];then
         echo -e "\e[1;34m Downloading Latest Files..."
         cd $HOME
         rm -rf Tbomb
@@ -152,7 +158,7 @@ do
         bash TBomb.sh
        
         exit
-    elif [ $ch -eq 5 ];then
+    elif [ $ch -eq 6 ];then
         banner
         exit
     else
