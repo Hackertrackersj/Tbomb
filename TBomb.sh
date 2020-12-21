@@ -146,6 +146,7 @@ do
         exit
     elif [ $ch -eq 4 ];then
         echo -e "\e[1;34m whatsapp bombing coming soon"
+        sleep 5
         cd $HOME
         cd Tbomb
         bash TBomb.sh
