@@ -1,14 +1,16 @@
 #!/bin/bash
 
 detect_distro() {
+    if [[ "$OSTYPE" == linux-android* ]]; then
+            distro="termux"
+    fi
+
     if [ -z "$distro" ]; then
         distro=$(ls /etc | awk 'match($0, "(.+?)[-_](?:release|version)", groups) {if(groups[1] != "os") {print groups[1]}}')
     fi
 
     if [ -z "$distro" ]; then
-        if [[ "$OSTYPE" == linux-android* ]]; then
-            distro="termux"
-        elif [ -f "/etc/os-release" ]; then
+        if [ -f "/etc/os-release" ]; then
             distro="$(source /etc/os-release && echo $ID)"
         elif [ "$OSTYPE" == "darwin" ]; then
             distro="darwin"
@@ -30,13 +32,13 @@ banner() {
         figlet TBomb
     fi
     if ! [ -x "$(command -v toilet)" ]; then
-        echo -e "\e[4;34m This Bomber Was modify By \e[1;32mNitro Hacker \e[0m"
+        echo -e "\e[4;34m This Bomber Was Created By \e[1;32mNitro Hacker \e[0m"
     else
         echo -e "\e[1;34mCreated By \e[1;34m"
         toilet -f mono12 -F border Nitro Hacker
     fi
-    echo -e "\e[1;34m For Any Queries Mail Me!!!\e[0m"
-    echo -e "\e[1;32m           Mail: nitro-hacker.ml \e[0m"
+    echo -e "\e[1;34m For Any Queries Join Me!!!\e[0m"
+    echo -e "\e[1;32m           Telegram: https://t.me/nitrohacker \e[0m"
     echo -e "\e[4;32m   YouTube: https://www.youtube.com/channel/UCv80Btv_4kn_9b-GVgPIwMg \e[0m"
     echo " "
 
@@ -68,6 +70,21 @@ init_environ(){
     PIP="$PYTHON -m pip"
 }
 
+install_deps(){
+    
+    packages=(openssl git $PYTHON $PYTHON-pip figlet toilet)
+    if [ -n "$INSTALL" ];then
+        for package in ${packages[@]}; do
+            $SUDO $INSTALL $package
+        done
+        $PIP install -r requirements.txt
+    else
+        echo "We could not install dependencies."
+        echo "Please make sure you have git, python3, pip3 and requirements installed."
+        echo "Then you can execute bomber.py ."
+        exit
+    fi
+}
 
 banner
 pause
@@ -80,7 +97,7 @@ else
     echo .
     echo .
     install_deps
-    echo This Script modify by Nitro Hacker > .update
+    echo This Script Was Made By Nitro Hacker > .update
     echo 'Requirements Installed....'
     pause
 fi
