@@ -151,7 +151,7 @@ def check_for_updates():
         update()
     else:
         mesgdcrt.SuccessMessage("TBomb is up-to-date")
-        mesgdcrt.GeneralMessage("Starting TBomb")
+        mesgdcrt.GeneralMessage("Starting TBomb now")
 
 
 def notifyen():
