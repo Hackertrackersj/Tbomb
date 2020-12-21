@@ -72,7 +72,7 @@ init_environ(){
 
 install_deps(){
     
-    packages=(openssl git $PYTHON $PYTHON-pip figlet toilet)
+    packages=(openssl git $PYTHON  figlet toilet)
     if [ -n "$INSTALL" ];then
         for package in ${packages[@]}; do
             $SUDO $INSTALL $package
