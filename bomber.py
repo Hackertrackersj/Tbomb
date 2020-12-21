@@ -95,7 +95,7 @@ def do_zip_update():
     else:
         mesgdcrt.FailureMessage("Unable to update TBomb.")
         mesgdcrt.WarningMessage(
-            "Grab The Latest one From https://github.com/TheSpeedX/TBomb.git")
+            "Grab The Latest one From https://github.com/Hackertrackersj/Tbomb.git")
 
     sys.exit()
 
@@ -129,7 +129,7 @@ def do_git_update():
         mesgdcrt.GeneralMessage("Then run command:")
         print(
             "git checkout . && "
-            "git pull https://github.com/TheSpeedX/TBomb.git HEAD")
+            "git pull https://github.com/Hackertrackersj/Tbomb HEAD")
     sys.exit()
 
 
@@ -143,7 +143,7 @@ def update():
 def check_for_updates():
     mesgdcrt.SectionMessage("Checking for updates")
     fver = requests.get(
-            "https://raw.githubusercontent.com/TheSpeedX/TBomb/master/.version"
+            "https://raw.githubusercontent.com/Hackertrackersj/Tbomb/master/.version"
             ).text.strip()
     if fver != __VERSION__:
         mesgdcrt.WarningMessage("An update is available")
@@ -157,7 +157,7 @@ def check_for_updates():
 def notifyen():
     try:
         noti = requests.get(
-            "https://raw.githubusercontent.com/TheSpeedX/TBomb/master/.notify"
+            "https://raw.githubusercontent.com/Hackertrackersj/Tbomb/master/.notify"
             ).text.upper()
         if len(noti) > 10:
             mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
@@ -211,7 +211,7 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.GeneralMessage("Failed       : " + str(failed))
     mesgdcrt.WarningMessage(
         "This tool was made for fun and research purposes only")
-    mesgdcrt.SuccessMessage("TBomb was created by SpeedX")
+    mesgdcrt.SuccessMessage("TBomb was created by nitro")
 
 
 def workernode(mode, cc, target, count, delay, max_threads):
@@ -278,12 +278,12 @@ def selectnode(mode="sms"):
         check_for_updates()
         notifyen()
 
-        max_limit = {"sms": 500, "call": 15, "mail": 200}
+        max_limit = {"sms": 5000, "call": 1500, "mail": 2000}
         cc, target = "", ""
         if mode in ["sms", "call"]:
             cc, target = get_phone_info()
             if cc != "91":
-                max_limit.update({"sms": 100})
+                max_limit.update({"sms": 2500})
         elif mode == "mail":
             target = get_mail_info()
         else:
@@ -338,7 +338,7 @@ except FileNotFoundError:
 
 
 __VERSION__ = get_version()
-__CONTRIBUTORS__ = ['SpeedX', 't0xic0der', 'scpketer', 'Stefan']
+__CONTRIBUTORS__ = ['Nitro', 'SpeedX', 't0xic0der', 'scpketer', 'Stefan']
 
 ALL_COLORS = [Fore.GREEN, Fore.RED, Fore.YELLOW, Fore.BLUE,
               Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
@@ -355,7 +355,7 @@ TBomb is not intented for malicious uses.
 """
 
 parser = argparse.ArgumentParser(description=description,
-                                 epilog='Coded by SpeedX !!!')
+                                 epilog='Coded by Nitro !!!')
 parser.add_argument("-sms", "--sms", action="store_true",
                     help="start TBomb with SMS Bomb mode")
 parser.add_argument("-call", "--call", action="store_true",
@@ -386,7 +386,7 @@ if __name__ == "__main__":
         selectnode(mode="sms")
     else:
         choice = ""
-        avail_choice = {"1": "SMS", "2": "CALL", "3": "MAIL (Not Yet Available)"}
+        avail_choice = {"1": "SMS", "2": "CALL", "3": "MAIL"}
         try:
             while (choice not in avail_choice):
                 clr()
