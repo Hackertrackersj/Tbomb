@@ -56,7 +56,7 @@ cd Tbomb
 chmod +x TBomb.sh
 ./TBomb.sh
 ```
-## Watch practical video <a href="https://youtu.be/gq7NKkNYuVA"> click here</a>
+## youtube channel <a href="https://www.youtube.com/channel/UCfzFTlm5vHNSrzZFm-At-Yw"> click here</a>
 
 ### > For Linux:
 
