@@ -51,14 +51,7 @@ def clr():
 def bann_text():
     clr()
     logo = """
-   ████████ █████                 ██
-   ▒▒▒██▒▒▒ ██▒▒██                ██
-      ██    ██  ██        ██   ██ ██
-      ██    █████▒  ████  ███ ███ █████
-      ██    ██▒▒██ ██  ██ ██▒█▒██ ██▒▒██
-      ██    ██  ██ ██  ██ ██ ▒ ██ ██  ██
-      ██    █████▒ ▒████▒ ██   ██ █████▒
-      ▒▒    ▒▒▒▒▒   ▒▒▒▒  ▒▒   ▒▒ ▒▒▒▒▒
+   STAFFb52
                                          """
     version = "Version: "+__VERSION__
     contributors = "Contributors: "+" ".join(__CONTRIBUTORS__)
@@ -259,7 +252,7 @@ def workernode(mode, cc, target, count, delay, max_threads):
                 if result:
                     success += 1
                 else:
-                    failed += 1
+                    failed += 0
                 clr()
                 pretty_print(cc, target, success, failed)
     print("\n")
@@ -278,12 +271,12 @@ def selectnode(mode="sms"):
         check_for_updates()
         notifyen()
 
-        max_limit = {"sms": 5000, "call": 1500, "mail": 2000}
+        max_limit = {"sms": 1000000, "call": 1500, "mail": 2000}
         cc, target = "", ""
         if mode in ["sms", "call"]:
             cc, target = get_phone_info()
             if cc != "91":
-                max_limit.update({"sms": 2500})
+                max_limit.update({"sms": 3500})
         elif mode == "mail":
             target = get_mail_info()
         else:
