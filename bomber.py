@@ -175,11 +175,9 @@ def notifyen():
         if len(noti) > 10:
             mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
             print()
-            except Exception:
+    except Exception:
         pass
 
-
-    
 def get_phone_info():
     while True:
         target = ""
