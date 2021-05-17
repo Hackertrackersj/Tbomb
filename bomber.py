@@ -177,6 +177,8 @@ def notifyen():
             print()
     except Exception:
         pass
+    if success:
+        mesgdcrt.SuccessMessage("TBomb was updated to the latest version")
 
 
 def get_phone_info():
