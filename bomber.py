@@ -175,12 +175,7 @@ def notifyen():
         if len(noti) > 10:
             mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
             print()
-    except Exception:
-        pass
-    if success:
-        mesgdcrt.SuccessMessage("TBomb was updated to the latest version")
-
-
+    
 def get_phone_info():
     while True:
         target = ""
