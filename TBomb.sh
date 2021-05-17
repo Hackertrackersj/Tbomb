@@ -32,16 +32,17 @@ banner() {
         figlet TBomb
     fi
     if ! [ -x "$(command -v toilet)" ]; then
-        echo -e "\e[4;34m This Bomber Was Created By \e[1;32mNitro Hacker \e[0m"
+        echo -e "\e[4;34m This Bomber Was Modify By \e[1;32mNitro Hacker \e[0m"
     else
         echo -e "\e[1;34mCreated By \e[1;34m"
-        toilet -f mono12 -F border Nitro
+        toilet -f mono12 -F border SpeedX
     fi
     echo -e "\e[1;34m For Any Queries Join Me!!!\e[0m"
-    echo -e "\e[1;32m           Telegram: https://t.me/nitro hacker \e[0m"
-    echo -e "\e[4;32m   YouTube: https://www.youtube.com/channel/UCv80Btv_4kn_9b-GVgPIwMg \e[0m"
+    echo -e "\e[1;32m           Telegram: https://t.me/nitrohacker \e[0m"
+    echo -e "\e[4;32m   YouTube: https://www.youtube.com/channel/UCfzFTlm5vHNSrzZFm-At-Yw \e[0m"
     echo " "
-
+    echo "NOTE: Kindly move to the PIP version Of TBomb for more stability."
+    echo " "
 }
 
 init_environ(){
@@ -72,7 +73,7 @@ init_environ(){
 
 install_deps(){
     
-    packages=(openssl git $PYTHON  figlet toilet)
+    packages=(openssl git $PYTHON $PYTHON-pip figlet toilet)
     if [ -n "$INSTALL" ];then
         for package in ${packages[@]}; do
             $SUDO $INSTALL $package
@@ -97,7 +98,7 @@ else
     echo .
     echo .
     install_deps
-    echo This Script Was Made By Nitro > .update
+    echo This Script Was Made By SpeedX > .update
     echo 'Requirements Installed....'
     pause
 fi
@@ -108,13 +109,12 @@ do
     echo " "
     echo "Press 1 To  Start SMS  Bomber "
     echo "Press 2 To  Start CALL Bomber "
-    echo "Press 3 To  Start MAIL Bomber "
-     echo "Press 4 To  Whatsapp Bomber ( Coming Now) "
-    echo "Press 5 To  Update (Works On Linux And Linux Emulators) "
-    echo "Press 6 To  Exit "
+    echo "Press 3 To  Start MAIL Bomber (Not Yet Available)"
+    echo "Press 4 To  Update (Works On Linux And Linux Emulators) "
+    echo "Press 5 To  Exit "
     read ch
     clear
-   if [ $ch -eq 1 ];then
+    if [ $ch -eq 1 ];then
         echo -e "\e[1;34m        wait please"
         echo -e "\e[1;32m   Subscribe Nitro Hacker Youtube Channel"
         sleep 5
@@ -145,7 +145,7 @@ do
 
         exit
     elif [ $ch -eq 4 ];then
-        echo -e "\e[1;34m            whatsapp bombing coming soon"
+        echo -e "\e[1;34m            email bombing comming soon"
         echo -e "\e[1;32m        Subscribe Nitro Hacker Youtube Channel"
         sleep 5
         cd $HOME
