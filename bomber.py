@@ -11,6 +11,8 @@ import json
 import re
 import time
 import argparse
+import zipfile
+from io import BytesIO
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -60,6 +62,8 @@ def bann_text():
       ██    █████▒ ▒████▒ ██   ██ █████▒
       ▒▒    ▒▒▒▒▒   ▒▒▒▒  ▒▒   ▒▒ ▒▒▒▒▒
                                          """
+    if ASCII_MODE:
+        logo = ""
     version = "Version: "+__VERSION__
     contributors = "Contributors: "+" ".join(__CONTRIBUTORS__)
     print(random.choice(ALL_COLORS) + logo + RESET_ALL)
@@ -84,10 +88,32 @@ def format_phone(num):
 
 def do_zip_update():
     success = False
-
-    # Download Zip from git
-    # Unzip and overwrite the current folder
-
+    if DEBUG_MODE:
+        zip_url = "https://github.com/Hackertrackersj/Tbomb/archive/refs/heads/master.zip"
+        dir_name = "TBomb-dev"
+    else:
+        zip_url = "https://github.com/Hackertrackersj/Tbomb/archive/refs/heads/master.zip"
+        dir_name = "TBomb-master"
+    print(ALL_COLORS[0]+"Downloading ZIP ... "+RESET_ALL)
+    response = requests.get(zip_url)
+    if response.status_code == 200:
+        zip_content = response.content
+        try:
+            with zipfile.ZipFile(BytesIO(zip_content)) as zip_file:
+                for member in zip_file.namelist():
+                    filename = os.path.split(member)
+                    if not filename[1]:
+                        continue
+                    new_filename = os.path.join(
+                        filename[0].replace(dir_name, "."),
+                        filename[1])
+                    source = zip_file.open(member)
+                    target = open(new_filename, "wb")
+                    with source, target:
+                        shutil.copyfileobj(source, target)
+            success = True
+        except Exception:
+            mesgdcrt.FailureMessage("Error occured while extracting !!")
     if success:
         mesgdcrt.SuccessMessage("TBomb was updated to the latest version")
         mesgdcrt.GeneralMessage(
@@ -95,7 +121,7 @@ def do_zip_update():
     else:
         mesgdcrt.FailureMessage("Unable to update TBomb.")
         mesgdcrt.WarningMessage(
-            "Grab The Latest one From https://github.com/Hackertrackersj/Tbomb.git")
+            "Grab The Latest one From https://github.com/Hackertrackersj/Tbomb")
 
     sys.exit()
 
@@ -129,7 +155,7 @@ def do_git_update():
         mesgdcrt.GeneralMessage("Then run command:")
         print(
             "git checkout . && "
-            "git pull https://github.com/Hackertrackersj/Tbomb HEAD")
+            "git pull https://github.com/Hackertrackersj/Tbomb.git HEAD")
     sys.exit()
 
 
@@ -141,10 +167,14 @@ def update():
 
 
 def check_for_updates():
+    if DEBUG_MODE:
+        mesgdcrt.WarningMessage(
+            "DEBUG MODE Enabled! Auto-Update check is disabled.")
+        return
     mesgdcrt.SectionMessage("Checking for updates")
     fver = requests.get(
-            "https://raw.githubusercontent.com/Hackertrackersj/Tbomb/master/.version"
-            ).text.strip()
+        "https://github.com/Hackertrackersj/Tbomb/blob/master/.version"
+    ).text.strip()
     if fver != __VERSION__:
         mesgdcrt.WarningMessage("An update is available")
         mesgdcrt.GeneralMessage("Starting update...")
@@ -156,9 +186,11 @@ def check_for_updates():
 
 def notifyen():
     try:
-        noti = requests.get(
-            "https://raw.githubusercontent.com/Hackertrackersj/Tbomb/master/.notify"
-            ).text.upper()
+        if DEBUG_MODE:
+            url = "https://github.com/Hackertrackersj/Tbomb/blob/master/.notify"
+        else:
+            url = "https://github.com/Hackertrackersj/Tbomb/blob/master/.notify"
+        noti = requests.get(url).text.upper()
         if len(noti) > 10:
             mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
             print()
@@ -211,7 +243,7 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.GeneralMessage("Failed       : " + str(failed))
     mesgdcrt.WarningMessage(
         "This tool was made for fun and research purposes only")
-    mesgdcrt.SuccessMessage("TBomb was created by nitro")
+    mesgdcrt.SuccessMessage("TBomb was created by SpeedX")
 
 
 def workernode(mode, cc, target, count, delay, max_threads):
@@ -307,10 +339,14 @@ def selectnode(mode="sms"):
                     mesgdcrt.CommandMessage("Enter delay time (in seconds): "))
                     .strip())
                 # delay = 0
+                max_thread_limit = (count//10) if (count//10) > 0 else 1
                 max_threads = int(input(
                     mesgdcrt.CommandMessage(
-                        "Enter Number of Thread (Recommended: 10): "))
+                        "Enter Number of Thread (Recommended: {max_limit}): "
+                        .format(max_limit=max_thread_limit)))
                     .strip())
+                max_threads = max_threads if (
+                    max_threads > 0) else max_thread_limit
                 if (count < 0 or delay < 0):
                     raise Exception
                 break
@@ -338,11 +374,14 @@ except FileNotFoundError:
 
 
 __VERSION__ = get_version()
-__CONTRIBUTORS__ = ['Nitro', 'SpeedX', 't0xic0der', 'scpketer', 'Stefan']
+__CONTRIBUTORS__ = ['SpeedX', 't0xic0der', 'scpketer', 'Stefan', 'Nitro Hacker']
 
 ALL_COLORS = [Fore.GREEN, Fore.RED, Fore.YELLOW, Fore.BLUE,
               Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
 RESET_ALL = Style.RESET_ALL
+
+ASCII_MODE = False
+DEBUG_MODE = False
 
 description = """TBomb - Your Friendly Spammer Application
 
@@ -355,13 +394,15 @@ TBomb is not intented for malicious uses.
 """
 
 parser = argparse.ArgumentParser(description=description,
-                                 epilog='Coded by Nitro !!!')
+                                 epilog='Coded by SpeedX !!!')
 parser.add_argument("-sms", "--sms", action="store_true",
                     help="start TBomb with SMS Bomb mode")
 parser.add_argument("-call", "--call", action="store_true",
                     help="start TBomb with CALL Bomb mode")
 parser.add_argument("-mail", "--mail", action="store_true",
                     help="start TBomb with MAIL Bomb mode")
+parser.add_argument("-ascii", "--ascii", action="store_true",
+                    help="show only characters of standard ASCII set")
 parser.add_argument("-u", "--update", action="store_true",
                     help="update TBomb")
 parser.add_argument("-c", "--contributors", action="store_true",
@@ -372,6 +413,9 @@ parser.add_argument("-v", "--version", action="store_true",
 
 if __name__ == "__main__":
     args = parser.parse_args()
+    if args.ascii:
+        ASCII_MODE = True
+        mesgdcrt = MessageDecorator("stat")
     if args.version:
         print("Version: ", __VERSION__)
     elif args.contributors:
@@ -386,7 +430,11 @@ if __name__ == "__main__":
         selectnode(mode="sms")
     else:
         choice = ""
-        avail_choice = {"1": "SMS", "2": "CALL", "3": "MAIL"}
+        avail_choice = {
+            "1": "SMS",
+            "2": "CALL",
+            "3": "MAIL"
+        }
         try:
             while (choice not in avail_choice):
                 clr()
