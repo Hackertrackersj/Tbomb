@@ -1,132 +1,154 @@
-<h1 align="center">TBomb v2.2</h1>
-<p align="center">An open-source SMS/call bomber for Linux And Termux.</p><br>
+<h1 align="center">
+  <br>
+  <a href="https://github.com/Hackertrackersj/Tbomb"><img src="https://i.ibb.co/F4HBKqm/TBomb.png" alt="TBomb"></a>
+  <br>
+  TBomb v2.1b
+  <br>
+</h1>
 
-## Note:
 
-Due misusing of TBomb, several API's died. 
-Don't be afraid if you don't see all send messages.
+<p align="center">A free and open-source SMS/Call bombing application</p>
 
-- The script requires working network connection to work.
-- No balance will be deducted for using this script to send SMS/calls.
-- While doing infinite bombing use 2-3 seconds delay and 10 to 20 threads for maximum performance.
-- Don't put spaces in between phone number (Ex- 99999 99999)
-- Make sure you are using the latest version of TBomb
-- Make sure you are using Python3.
+## NOTE:
 
-Here's how you can check it. Type this command in your terminal.
+
+> **Due to the overuse of script, a bunch of APIs have been taken offline. It is okay if you do not receive all the messages.**
+
+
+- The application requires active internet connection to contact the APIs
+- You would not be charged for any SMS/calls dispatched as a consequence of this script
+- For best performance, use single thread with considerable delay time
+- Always ensure that you are using the latest version of TBomb and have Python 3
+- This application must not be used to cause harm/discomfort/trouble to others
+- By using this, you agree that you cannot hold the contributors responsible for any misuse
+
+## Compatibility
+Check your Python version by typing in
+```shell script
+$ python --version
 ```
-$ python -V
+If you get the following
+```shell script
+Python 3.8.3
 ```
-If output looks like `Python 3` - Congrats, Python 3 is installed properly.
+or any version greater than or equal to 3.4, this script has been tested and confirmed to be supported. For obsolete versions of Python (eg 2.7), use discretion while executing the script as it has not been tested there.
 
-- Do not use this to harm others.
-- This script is only for educational purposes or to prank.
-- **None of the developers/contributors are responsible for the misuse of TBomb.**
-<br>
+## Features
 
-## Features:
+- Over 15 integrated messaging and calling APIs included with JSON
+- Unlimited (with abuse protection) and super-fast bombing with multithreading
+- Possibility of international API support (APIs are offline)
+- Flexible with addition of newer APIs with the help of JSON documents
+- Actively supported by the developers with frequent updates and bug-fixes
+- Intuitive auto-update feature and notification fetch feature included
+- Recently made free and open-source for community contributions
+- Modular codebase and snippets can be easily embedded in other program
 
-- Lots of integrated SMS/call APIs
-- Unlimited (Limited against abusing) and super-fast bombing
-- International bombing available (APIS Dead. Try Your Luck.) 
-- Call bombing
-- Frequent updates
-- Automatic updating mechanism
-- Easy to use and embed in code
 
 ## Usage:
 
-Run these commands to run TBomb
+### Install by PIP (Recommended)
 
-### > For Termux:
+Before continuing make sure following requirements are satisfied:
 
-**Notice:** 
+- Python version greater than or equal to 3.4 is installed
+- pip is installed for Python 3
 
-git installation methods are not universal and do differ between distributions,
-so, installing git as per instructions below may not work.
-Please check out how to install `git` for your Linux distribution.
-Commands below provide instructions for Debian-based systems.
+Install `tbomb` package by running:
+
+```shell script
+pip3 install tbomb
+```
+
+Run TBomb by just typing:
+```shell script
+tbomb
+```
+
+### Install from GIT
+
+#### NOTE 
+
+Git installation methods are not universal and are likely to differ between distributions so installing Git as per the given instructions below may not work. Please check out how to install Git for your Linux distribution [here](https://git-scm.com/). Commands below provide instructions for Debian-based systems.
+
+>Running `TBomb.sh` as sudo miscofigures files ownership. It is recommended not to run it as sudo
+
+Run these commands to clone and run TBomb.
+
+#### For Termux
 
 To use the bomber type the following commands in Termux:
-```
-pkg install git
-pkg install python
-git clone https://github.com/Hackertrackersj/Tbomb.git
+```shell script
+pkg install git -y 
+pkg install python -y 
+git clone https://github.com/Hackertrackersj/Tbomb
 cd Tbomb
+./TBomb.sh
+```
+
+#### For iSH
+
+To use the application, type in the following commands in iSH.
+```shell script
+apk add git
+apk add python3
+apk add py3-pip
+apk add ruby
+gem install toilet
+git clone https://github.com/Hackertrackersj/Tbomb
+cd Tbomb
+pip3 install -r requirements.txt
 chmod +x TBomb.sh
 ./TBomb.sh
 ```
-## youtube channel <a href="https://www.youtube.com/channel/UCfzFTlm5vHNSrzZFm-At-Yw"> click here</a>
 
-### > For Linux:
+#### For Debian-based GNU/Linux distributions
 
-**Notice:** 
-
-git installation methods are not universal and do differ between distributions,
-so, installing git as per instructions below may not work.
-Please check out how to install `git` for your Linux distribution.
-Commands below provide instructions for Debian-based systems.
-
-To use the bomber type the following commands in Linux terminal:
-```
+To use the application, type in the following commands in GNU/Linux terminal.
+```shell script
 sudo apt install git
-git clone https://github.com/Hackertrackersj/Tbomb
-cd TBomb
-chmod +x TBomb.sh
-sudo bash TBomb.sh
+git clone https://github.com/Hackertrackersj/Tbomb
+cd Tbomb
+bash TBomb.sh
 ```
 
-### > For macOS:
+#### For MacOS
 
-To use the bomber type the following commands in macOS terminal:
-```
-# Install Brew: 
+To use the application, type in the following commands in MacOS terminal:
 
+##### Install Brew
+
+```shell script
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+````
 
-# Install dependencys:
+##### Install dependencies:
 
+```shell script
 brew install git
 brew install python3
 sudo easy_install pip
 sudo pip install --upgrade pip
 git clone https://github.com/Hackertrackersj/Tbomb
-cd TBomb
-chmod +x TBomb.sh
-
-# Missing Tools on MacOS
-
-Toilet cannot be installed yet. But TBomb does still work.
-
-# Run TBomb:
-
-sudo bash TBomb.sh
+cd Tbomb
+bash TBomb.sh
 ```
 
-## Demontrative Video:
 
-- Watch Indian Bombing Method <a href="https://youtu.be/gq7NKkNYuVA">here</a><br>
+##### Missing Tools on MacOS
 
+The package `toilet` cannot be installed yet on macOS. But TBomb does still work.
 
-## CONTRIBUTORS:
+### Demonstrative Video:
 
-- **SpeedX**<br>
-[-] Mail At:https://github.com/Hackertrackersj/Tbomb
-
+- Watch Indian Bombing Method [here](https://www.youtube.com/c/NitroHacker)  
 
 
+### TODO:
 
-
-
-# CONTACT ME:
-
-Feel Free To Open An Issue...
-
-```
-                 Mail:https://github.com/Hackertrackersj/Tbomb
-       YouTube Channel:https://www.youtube.com/channel/UCqqNyOaX6Dxwg5e6Bf6reSw
-```
-
-<a href="https:
-
+- [x] Make Code More Readable and Extensible
+- [ ] Add More Mail Spam APIs
+- [ ] Add More SMS Spam APIs
+- [ ] Add More Call Spam APIs
+- [ ] Resolve threading issue in some devices
 

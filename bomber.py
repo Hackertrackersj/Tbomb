@@ -86,97 +86,7 @@ def format_phone(num):
     return ''.join(num).strip()
 
 
-def do_zip_update():
-    success = False
-    if DEBUG_MODE:
-        zip_url = "https://github.com/Hackertrackersj/Tbomb/archive/refs/heads/master.zip"
-        dir_name = "TBomb-dev"
-    else:
-        zip_url = "https://github.com/Hackertrackersj/Tbomb/archive/refs/heads/master.zip"
-        dir_name = "TBomb-master"
-    print(ALL_COLORS[0]+"Downloading ZIP ... "+RESET_ALL)
-    response = requests.get(zip_url)
-    if response.status_code == 200:
-        zip_content = response.content
-        try:
-            with zipfile.ZipFile(BytesIO(zip_content)) as zip_file:
-                for member in zip_file.namelist():
-                    filename = os.path.split(member)
-                    if not filename[1]:
-                        continue
-                    new_filename = os.path.join(
-                        filename[0].replace(dir_name, "."),
-                        filename[1])
-                    source = zip_file.open(member)
-                    target = open(new_filename, "wb")
-                    with source, target:
-                        shutil.copyfileobj(source, target)
-            success = True
-        except Exception:
-            mesgdcrt.FailureMessage("Error occured while extracting !!")
-   
-    sys.exit()
 
-
-def do_git_update():
-    success = False
-    try:
-        print(ALL_COLORS[0]+"UPDATING "+RESET_ALL, end='')
-        process = subprocess.Popen("git checkout . && git pull ",
-                                   shell=True,
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.STDOUT)
-        while process:
-            print(ALL_COLORS[0]+'.'+RESET_ALL, end='')
-            time.sleep(1)
-            returncode = process.poll()
-            if returncode is not None:
-                break
-        success = not process.returncode
-    except Exception:
-        success = False
-    print("\n")
-
-    
-
-
-def update():
-    if shutil.which('git'):
-        do_git_update()
-    else:
-        do_zip_update()
-
-
-def check_for_updates():
-    if DEBUG_MODE:
-        mesgdcrt.WarningMessage(
-            "DEBUG MODE Enabled! Auto-Update check is disabled.")
-        return
-    mesgdcrt.SectionMessage("Checking for updates")
-    fver = requests.get(
-        "https://github.com/Hackertrackersj/Tbomb/blob/master/.version"
-    ).text.strip()
-    if fver != __VERSION__:
-        mesgdcrt.WarningMessage("An update is available")
-        mesgdcrt.GeneralMessage("Starting update...")
-        update()
-    else:
-        mesgdcrt.SuccessMessage("TBomb is up-to-date")
-        mesgdcrt.GeneralMessage("Starting TBomb")
-
-
-def notifyen():
-    try:
-        if DEBUG_MODE:
-            url = "https://github.com/Hackertrackersj/Tbomb/blob/master/.notify"
-        else:
-            url = "https://github.com/Hackertrackersj/Tbomb/blob/master/.notify"
-        noti = requests.get(url).text.upper()
-        if len(noti) > 10:
-            mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
-            print()
-    except Exception:
-        pass
 
 def get_phone_info():
     while True:
@@ -287,15 +197,14 @@ def selectnode(mode="sms"):
         clr()
         bann_text()
         check_intr()
-        check_for_updates()
-        notifyen()
+        
 
-        max_limit = {"sms": 5000, "call": 1500, "mail": 2000}
+        max_limit = {"sms": 50000, "call": 1500, "mail": 2000}
         cc, target = "", ""
         if mode in ["sms", "call"]:
             cc, target = get_phone_info()
             if cc != "91":
-                max_limit.update({"sms": 2500})
+                max_limit.update({"sms": 10000})
         elif mode == "mail":
             target = get_mail_info()
         else:
@@ -354,7 +263,7 @@ except FileNotFoundError:
 
 
 __VERSION__ = get_version()
-__CONTRIBUTORS__ = ['SpeedX', 't0xic0der', 'scpketer', 'Stefan', 'Nitro Hacker']
+__CONTRIBUTORS__ = ['SpeedX', 't0xic0der', 'scpketer', 'Stefan', 'Nitro']
 
 ALL_COLORS = [Fore.GREEN, Fore.RED, Fore.YELLOW, Fore.BLUE,
               Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
@@ -374,7 +283,7 @@ TBomb is not intented for malicious uses.
 """
 
 parser = argparse.ArgumentParser(description=description,
-                                 epilog='Coded by SpeedX !!!')
+                                 epilog='moded by Nitro !!!')
 parser.add_argument("-sms", "--sms", action="store_true",
                     help="start TBomb with SMS Bomb mode")
 parser.add_argument("-call", "--call", action="store_true",
